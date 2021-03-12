@@ -46,4 +46,40 @@ two Types of Database:
 2.No-Relational (NoSQL) ------- organize data is anything but traditonal table ------ documents xml,json,flexible,graphs,key-value stores.
 
 
+Day-2
 
+Relational Databases(SQL)        
+
+for example student table      
+
+id  name    major
+1   jack    biology
+2   mithun  psychology
+3   john    chemistry
+
+RDBMS ----  example  ----  mySQL,Oracle,postgreSQL
+ 
+noSQL(Non Relational)
+{
+{
+"_id":1,
+"name":"Mithun",
+"age":23
+},
+{
+"_id":2,
+"name":"Mithun",
+"age":23
+},
+{
+"_id":3,
+"name":"Mithun",
+"age":23
+}
+}
+
+Document will be in json,xml.
+Graphs are relational nodes.
+Contains key value hashing pairs.
+
+Non-Relational Databases(noSQL) ----- mongoDB,apache cassandra,firebase etc
