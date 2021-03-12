@@ -82,4 +82,46 @@ Document will be in json,xml.
 Graphs are relational nodes.
 Contains key value hashing pairs.
 
-Non-Relational Databases(noSQL) ----- mongoDB,apache cassandra,firebase etc
+Non-Relational Databases(noSQL) ----- mongoDB,apache cassandra,firebase,dynamoDB etc
+
+Database Queries  ---- asking database give specific information.
+
+google search is also a query.
+
+Tables and Keys
+
+id  name      major     // here id is underscored means its a primary key.
+1   Jack     Biology
+2   Kate     sociology
+3   claire   english
+4   jack     biology     ///////column ----- Title  and rows---individual entry
+
+email        password      type
+m@gmail.com   sfjhgfygy73  admin  // //// here email is primary key
+fake2gmail.com ugydgwq      free
+
+employee table
+empl_id   name      sex   salary   branch_id  super_id        ///empll_id is primary key
+12121     sndjn     M     8736265   1         NULL
+jgsyfg    hdghswag  F     35622     2         100             //here branch id is foreign key which is required to link one database table to another database table.
+ifjeifji fiewjfij   M     731284    3         101
+dlkndu    fkmwefme  F     46374     2         101             ///here super_id is also foreign key
+
+mapping is done by foreign key,,,,you can have more than one foreign keys in table
+
+branch table
+branch_id  branch_name   mgr_id
+2          Scranton      101        //branch_id is primary key here
+3          Stamford      102
+1          Corporate     108
+
+branch supplier
+branch_id   supplier_name     supply_type      /////here branch_id and supplier_name are primary key ,,,if more than one primary key present in table is called as composite key.
+2          Hammer mill        paper
+2           Uni-ball          writing utensils      ///here combination of two i.e branch_id and supplier_name jointly works as a primary key i.e composite key.
+3          patriot paper      paper
+2          Uni-ball           custom forms
+3          Hammer mill        paper
+3          stamford labels    custom forms
+
+
