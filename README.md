@@ -125,3 +125,11 @@ branch_id   supplier_name     supply_type      /////here branch_id and supplier_
 3          stamford labels    custom forms
 
 
+Day - 3
+
+2 foreign keys of one table will considered as 1 primary key in that table   -----   which defines the relationship.
+
+SQL Basics
+
+
+
