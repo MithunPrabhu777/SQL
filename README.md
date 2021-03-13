@@ -131,5 +131,46 @@ Day - 3
 
 SQL Basics
 
+SQL is language used for interacting with RDBMS.
+
+1.Create,retrieve,update and delete data
+2.manage databases
+3.design and create database tables
+4.perform administration task(security,import/export etc)
+
+But here is a catch ,,, SQL implementations vary between system ,,, postegreSQL,mySQL(RDMS) commands varies slightly for these RDBMS. ///but concepts are same.
+
+SQL basiclly made of 4 types of languages:
+1.DQL(Data Query Language)  ----  query database for information
+2.DDL(Data Definition Language)   ----  defining database schemas
+3.DCL(Data Control Language)    ----  controll access to data in the database
+4.DML(Data Manipulation Language)  ---- for inserting.updating,deleting data
+
+Queries
+
+Query is set of instructions given to RDBMS that tell RDBMS what information you want it to retrieve for you.
+
+For ex: Select employee.name , employee.age from employee where employee.salary >30000;
+
+MySQL Windows Installation
+
+Search MySQL community server
+
+ click on Windows 64/MySQL MSI installer  --- Download ----  No thanks ,,just start my download ---- Accept --- Custom  --- MySQL server 5.7 add it to right side --- mySQL shell 64 bit  ---- next --- standalone --- next  ---- password --- next ---- next --- configure --- finish 
+ 
+ Search in Windows MySQL 5.7 Command Line Client --- password --- logged in --- connected mysql server .
+ 
+ create database giraffe;
+ 
+ You can do it in terminal
+ 
+ Instead we can use popSQL which is better than terminal work.
+ 
+ search popsql.io
+ 
+ download for windows.  /// use it as text-editor.
+ 
+ 
+
 
 
