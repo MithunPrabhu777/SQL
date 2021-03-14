@@ -170,7 +170,36 @@ Search MySQL community server
  
  download for windows.  /// use it as text-editor.
  
+ Day - 4
  
-
+ sign in with google
+ 
+ Connect to your database
+ 
+ type:mysql
+ hostname:localhost
+ port:3306
+ database:giraffe
+ username:root
+ password:kjnjngoejrg
+ 
+ connect
+ 
+ Now text editor is hooked up to the database.
+ 
+ Creating Tables
+ 
+ In PopSQL.
+ 
+ Basic Data TYpes in sql are:
+ 1.INT
+ 2.Decimal(M,N)  Here M is length of number and N is number of decimals after decimal places.
+ 3.Varchar(l)
+ 4.Blob
+ 5.Date
+ 6.Timestamp
+ 
+ 
+ 
 
 
