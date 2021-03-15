@@ -199,7 +199,41 @@ Search MySQL community server
  5.Date
  6.Timestamp
  
+ Day - 5
  
+ CREATE TABLE student (                                                          
+ student_id INT PRIMARY KEY,
+ name VARCHAR(20),                                                               student_id    name    major
+ major VARCHAR(20)                                                                 1        jack    biology
+ );                
+                                                                                   2        kate    sociology
+                                                                                   3        claire  english
  
+DESCRIBE student;
+
+DROP TABLE student;
+
+ALTER TABLE student ADD gpa DECIMAL(3,2);
+
+ALTER TABLE atudent DROP COLUMN gpa;
+
+--------------------******----------------------
+Inserting Data:
+
+INSERT INTO student VALUES(1,'Jack',"Biology');
+INSERT INTO student VALUES(2,'Kate',"sociology');
+INSERT INTO student VALUES(3,'claire',"english');
+
+select * from student;
+
+If student do not have any major than we can write query as follows:
+INSERT INTO student(student_id,name) VALUES(4,'claire john');                /// amjor will be NULL
+
+You cannot duplicate primary key!!!!!!!!!!!!!!!!!!!!!!!
+
+--------------------------------**************--------------------------
+
+C:
+
 
 
