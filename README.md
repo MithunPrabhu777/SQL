@@ -203,19 +203,22 @@ Search MySQL community server
  
  CREATE TABLE student (                                                          
  student_id INT PRIMARY KEY,
- name VARCHAR(20),                                                               student_id    name    major
- major VARCHAR(20)                                                                 1        jack    biology
+ name VARCHAR(20),                                                              
+ major VARCHAR(20)                                                                 
  );                
-                                                                                   2        kate    sociology
-                                                                                   3        claire  english
- 
+                                                                                 
+  student_id    name    major
+  1        jack    biology
+  2        kate    sociology
+  3        claire  english
+  
 DESCRIBE student;
 
 DROP TABLE student;
 
 ALTER TABLE student ADD gpa DECIMAL(3,2);
 
-ALTER TABLE atudent DROP COLUMN gpa;
+ALTER TABLE student DROP COLUMN gpa;
 
 --------------------******----------------------
 Inserting Data:
@@ -233,7 +236,77 @@ You cannot duplicate primary key!!!!!!!!!!!!!!!!!!!!!!!
 
 --------------------------------**************--------------------------
 
-C:
+C:NOT NULL,UNIQUE,DEFAULT,AUTO_INCREMENT ------ THese are called as Constraints.
+
+ CREATE TABLE student (                                                          
+ student_id INT,  
+ name VARCHAR(20) NOT NULL,       ////Student Name is compulsory   otherwise,,,it will give syntax error                                                     
+ major VARCHAR(20) UNIQUE,        ////If other major have same value then row will be rejected.
+ PRIMARY KEY(student_id)
+ );  
+ 
+INSERT INTO student VALUES(1,'Jack',"Biology');
+INSERT INTO student VALUES(2,'NULL',"sociology');  ///Syntax error will be thrown because name is declared as not null
+INSERT INTO student VALUES(3,'claire',"Biology');   //// Duplicate entry 'Biology' for key 'major'
+
+ CREATE TABLE student (                                                          
+ student_id INT PRIMARY KEY,
+ name VARCHAR(20),                                                              
+ major VARCHAR(20) DEFAULT 'undecided'    /// If user do not have entry for major by default undecided string will be presented in table.
+ );  
+ 
+ CREATE TABLE student (                                                          
+ student_id INT AUTO_INCREMENT,
+ name VARCHAR(20),                                                              
+ major VARCHAR(20),
+ PRIMARY KEY(student_id)
+ );  
+ 
+INSERT INTO student VALUES('Jack',"Biology');
+INSERT INTO student VALUES('NULL',"sociology');   /// If user do not even specify student_id it will be auto_filled by numbers using AUTO_INCREMENT constraint
+
+-----------------------------------**********************-------------------------------------------
+
+Update and Delete
+
+UPDATE student                       
+SET major = 'Bio'
+WHERE major = 'Biology';
+
+UPDATE student 
+SET major = 'Comp Sci'
+WHERE student_id=1;
+
+UPDATE student                       
+SET major = 'Biochemistry'
+WHERE major = 'Bio' OR major = 'chemistry';
+
+UPDATE student 
+SET name = 'Tom' , major = 'undecided'
+WHERE student_id=1;
+
+UPDATE student 
+SET major = 'undecided';
+
+DELETE FROM student
+WHERE student_id = 5;
+
+DELETE FROM student
+WHERE name='Tom' AND major = 'undecided';
+
+-------------*****************---------------
+
+Basic Queries:
+
+SELECT * FROM student; /// everything in student table will be displayed. * means all
+
+SELECT name FROM student; //// only names will be displayed from student table
+
+SELECT student.name,student.major FROM student; //// displays only name and major from table student.
 
 
 
+
+
+ 
+ 
