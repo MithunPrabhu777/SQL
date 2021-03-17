@@ -236,6 +236,8 @@ You cannot duplicate primary key!!!!!!!!!!!!!!!!!!!!!!!
 
 --------------------------------**************--------------------------
 
+Day - 6
+
 C:NOT NULL,UNIQUE,DEFAULT,AUTO_INCREMENT ------ THese are called as Constraints.
 
  CREATE TABLE student (                                                          
@@ -304,9 +306,115 @@ SELECT name FROM student; //// only names will be displayed from student table
 
 SELECT student.name,student.major FROM student; //// displays only name and major from table student.
 
+Day -7
+
+SELECT student.name,student.major 
+FROM student
+ORDER BY name DESC;
+/// If you DESC name will come in opposite alphabetic order.
+////Name will be ordered according to alphabetic order.
+
+SELECT * 
+FROM student
+ORDER BY student_id ASC;
+
+///ASC by default
+
+SELECT * 
+FROM student                       //// First it will order by major with alphabetic order.
+ORDER BY major,student_id;
+
+SELECT * 
+FROM student
+LIMIT 2;  
+
+///only 2 rows from table will be fetched.
+
+SELECT * 
+FROM student
+ORDER BY student_id DESC
+LIMIT 2;  
+
+// order student_id with descing and limits it to 2 rows
+
+SELECT * 
+FROM student
+WHERE major = "Biology" OR major = "Chemistry";  /// displays who is under biology or chemistry major.
 
 
+SELECT * 
+FROM student
+WHERE major = "Biology" OR name = "kate";  ///  displays who is under biology or having name kate.
+
+opeartors: ---
+
+<> - Not equal to
+<= - less than or equal to
+>= - greater than or equal to
+AND, OR
 
 
- 
- 
+SELECT * 
+FROM student
+WHERE student_id < 3;  /// displays students list having student_id less than 3
+
+
+SELECT * 
+FROM student
+WHERE student_id <= 3 AND name <> 'Jack';   //// student_id 1 2 3 and name should not be jack.
+
+SELECT * 
+FROM student                                 ///// Display student table having name claire,kate ,mike
+WHERE name IN ('claire','kate','mike');
+
+SELECT * 
+FROM student                                 ///// Display student table having name claire,kate ,mike and student_id should be greater than 2
+WHERE name IN ('claire','kate','mike') AND student_id > 2;
+
+-----------------------**************************---------------------------------------
+
+Company Database Into::::
+
+We are going into more complex database schema
+
+Emplyee table:
+
+emp_id  first_name last_name birth_date sex salary super_id branch_id       ///// here emp_id is primary key and supervisor_id,branch_id is foreign key.
+
+Branch table:
+
+branch_id  branch_name  mgr_id  mgr_start_date               /////// branch_id is primary key,,, mgr_id is foreign key.
+
+Client Table:
+
+client_id client_name branch_id                       ///// client_id is primary key and branch_id is foreign key.
+
+Branch Supplier Table:
+
+branch_id  supplier_name  supply_type                ////// here we have composite primary key both will considered as one primary key,,,branch_id,supplier_name
+
+Works_with Table:
+
+emp_id client_id total_sales                   ///// emp_id and client_id is composite primary key.
+
+-----------------------------****************-----------------
+
+Creating Company Database:
+
+DROP TABLE student;
+
+CREATE TABLE employee{
+emp_id INT PRIMARY KEY,
+first_name VARCHAR(40),
+last_name VARCHAR(40),
+birth_date DATE,
+sex VARCHAR(1),
+salary INT,
+super_id INT,
+branch_id INT
+}
+
+///// You have seen that super id and branch id are foreign keys but they are not mentioned as foreign keys because still we have not created tables for branch and supervisor so
+we kept as normal attribute.
+
+
