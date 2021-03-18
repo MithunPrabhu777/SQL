@@ -403,6 +403,8 @@ Creating Company Database:
 
 DROP TABLE student;
 
+employee table:
+
 CREATE TABLE employee{
 emp_id INT PRIMARY KEY,
 first_name VARCHAR(40),
@@ -417,4 +419,50 @@ branch_id INT
 ///// You have seen that super id and branch id are foreign keys but they are not mentioned as foreign keys because still we have not created tables for branch and supervisor so
 we kept as normal attribute.
 
+Day - 8
+
+branch table:
+create table branch (
+branch_id INT PRIMARY KEY,
+branch_name VARCHAR(40),
+mgr_id INT,
+mgr_start_date DATE,
+FOREIGN_KEY(mgr_id) REFERENCES employee(emp_id) ON DELETE SET NULL);
+
+In Employee table still super_id and branch_id is normal attributes so we need to alter table employee with:
+
+ALTER TABLE employee
+ADD FOREIGN KEY(branch_id)
+REFERENCES branch(branch_id)
+ON DELETE SET NULL;
+
+ALTER TABLE employee
+ADD FOREIGN KEY(super_id)
+REFERENCES employee(emp_id)
+ON DELETE SET NULL;
+);
+
+CREATE TABLE client(
+client_id INT PRIMARY KEY,
+client_name VARCHAR(40),
+branch_id INT,
+FOREIGN KEY(branch_id) REFERENCES branch(branch_id) ON DELETE SET NULL
+);
+
+CREATE TABLE works_with(
+emp_id INT,
+client_id INT,
+total_sales INT,
+PRIMARY KEY(emp_id,client_id),
+FOREIGN KEY(emp_id) REFERENCES employee(emp_id) ON DELETE CASCADE,
+FOREIGN KEY(client_id) REFERENCES client(client_id) ON DELETE CASCADE
+);
+
+INSERT INTO employee VALUES(100,'David','Wallace','1967-11-17','M',25000,NULL,NULL);
+
+INSERT INTO branch VALUES(1,'corporate',100,'2006-02-09);
+
+UPDATE employee
+SET branch_id = 1
+WHERE emp_id = 100;
 
