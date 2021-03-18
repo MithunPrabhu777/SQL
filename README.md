@@ -466,3 +466,66 @@ UPDATE employee
 SET branch_id = 1
 WHERE emp_id = 100;
 
+------------------*************---------
+
+ More Basic Queries:
+ 
+ 1.find all employees
+ 
+ select * from employee;
+ 
+ 2.Find all employees ordered by salary
+ 
+ select *
+ from employee
+ order by salary;
+ 
+ 3.Find all employees ordered by sex then name
+
+select *
+from employee
+order by sex, first_name,last_name;
+
+4.Find first 5 employees in the table
+
+select *
+from employee
+limit 5;
+
+5. Find first and last names of all employees
+
+select first_name,last_name
+from employee;
+
+6.Find the forename and surname of employees
+
+select first_name as forename,last_name as surname
+from employee;
+
+7. find out all different genders
+
+select distinct sex
+from employee;
+
+-----------*88888888*-------------------------
+
+Functions:
+
+1.Find number of employees
+
+select count(emp_id)
+from employee;
+
+2.Find number of female employees born after 1970
+
+select count(emp_id)
+from employee
+where sex='F' AND date > '01-01-1971';
+
+ Find average of all employees salaries
+ 
+ select avg(salary)
+ from employee;
+ 
+ 
+ 
