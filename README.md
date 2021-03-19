@@ -522,10 +522,81 @@ select count(emp_id)
 from employee
 where sex='F' AND date > '01-01-1971';
 
- Find average of all employees salaries
+3. Find average of all employees salaries
  
  select avg(salary)
  from employee;
- 
- 
- 
+
+
+Day - 9
+
+
+4.Find sum of all employees salaries
+
+select sum(salary)
+from employee;
+
+AGGREGATION:
+
+1.Find how many males and females
+
+select count(sex),sex
+from employee
+group by sex;
+
+2.Find total sales of each salesman
+
+select sum(total_sales),emp_id
+from works_with
+group by emp_id;
+
+------------------**************-------------
+
+WILDCARDS::
+
+% , _  are popular wildcards
+
+1.Find any client's who are an LLC
+
+select * 
+from client
+where client_name like '%LLC';
+
+2.Find any branch suppliers who are in label business.
+
+select *
+from branch supplier
+where supplier_name like '% Label%';
+
+3.Find any employee born in october.
+
+select *
+from employee
+where birth_date like '____-10%';
+
+
+4.Find any clients who are schools
+
+select * 
+from client
+where client_name like '%school%';
+
+-----------**********************---------------------
+
+UNION:::
+
+1.Find list of employee and branch names
+
+select first_name                 //if you add one more attribute last_name then it throws error 
+from employee                        because of more than one column in first retrive compared to    
+UNION                               second and they should be of same data type.U can use multiple
+select branch_name                  UNION operators in one query.
+from branch;
+
+2.Find list of all clients and branch suppliers name
+
+select client_name
+from client
+UNION
+select supplier_name
+from branch_supplier;
