@@ -600,3 +600,62 @@ from client
 UNION
 select supplier_name
 from branch_supplier;
+
+Day -10
+
+3.Find a list of all money spent or earned by company.
+
+select salary
+from employee
+UNION
+select total_sales
+from works_with;
+
+JOINS
+
+Insert into branch values(4,'Bufalo',NULL,NULL);
+
+1.Find all branches and names of their managers.
+
+select employee.emp_id,employee.first_name,branch.branch_name
+from employee
+join branch
+on employee.emp_id = branch.mgr_id
+
+select employee.emp_id,employee.first_name,branch.branch_name
+from employee
+left join branch
+on employee.emp_id = branch.mgr_id;   /// left out people other than manager are displayed i.e is from employee table.
+
+select employee.emp_id,employee.first_name,branch.branch_name
+from employee
+right join branch
+on employee.emp_id = branch.mgr_id;
+
+//even buffalo branch also added which dont have manager i.e from branch table.
+
+Nested Queries::::::
+
+-- 1.Find names of all employees who have 
+-- sold over 30000 to single client.
+
+select first_name,last_name
+from employee
+where emp_id IN (
+select emp_id 
+from works_with
+where total_sales>30000;
+);
+
+--2.Find all clients who are handled by branch
+--that michael scott manages
+--assume you know michaels ID
+
+select client_name
+from client
+where branch_id = (
+select branch_id
+from branch
+where mgr_id = 102);
+
+
