@@ -768,3 +768,54 @@ end if;
 end$$
 delimiter;
 
+-----------------********************************-----------------------
+
+ER DIAGRAMS INTRO----
+
+Entity - A object we want to model and store information
+Attributes - Specific pieces of information about entity.
+
+If you consider Student as Entity then name,grade,gpa are attributes.
+
+Primary key - Attribute that unique identity entry in database table.
+
+composite attribute - attribute that can be broken up into sub-attributes
+
+Multi-valued attribute - Attribute that can have more than one value.
+
+Derived attribute - Attribute that can be derived from other attributes.
+
+Multiple Entities - You can define more than one entity in diagram.
+
+Relationships - Defines relationship between two entities.
+
+Total Participation - All members must participate in relationship. // double line indicates total participation.
+
+partial participation - //single line indicates partial participation.
+
+Relationship Attribute - attribute about relationship.
+
+Relationship Cardinality - Number of instances of entity from relation that can be associated with relation ///  1:1 , 1:N , N:M
+
+Weak Entity - Entity that cannot be uniquely identified by its attribute alone.
+
+Identifying Relationship - A relationship that serves to uniquely identify weak entity.
+
+-------------------------------*******************************---------------------------------------
+
+Designing ER Diagram:
+
+Company Data Requirements:::
+
+1.Comapany is organized into branches. Each branch has unque number, name and particular employee who manages it.
+2.Company makes it's money by selling to clients. Each client has a name and unique number to identify it.
+3.Foundation of company is it's employees.Each employee has a name,birthday,sex,salary and unique number.
+4.Employee can work for one branch at a time,and each branch will be managed by one of employyes that work here. We'll also want to keep track of when current manager started as manager.
+5.Employee can act as supervisor for other employees at branch, employee may also act as supervisor for employees at other branches. Employee can have at most one supervisor.
+6.A branch may handle number of clients,with each clients, with each client having name and uniwue number to identify it. A single client may only be handled by one branch at a time.
+7.Employees can work with clients controlled by their branch to sell them.
+
+
+
+
+
