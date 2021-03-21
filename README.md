@@ -658,4 +658,113 @@ select branch_id
 from branch
 where mgr_id = 102);
 
+-------------------------***************************---------------------------
+
+Day - 11
+
+On Delete:::
+
+CasCade and Set NULL
+
+On Delete Set Null --- if we remove any employees then employee table associated some attributes will set to null.
+On Delete Cascade  --- if we delete any attricute from employee table then associated attributes will remove  entire row.
+
+Branch table:
+
+create table branch (
+branch_id INT PRIMARY KEY,
+branch_name VARCHAR(40),
+mgr_id INT,
+mgr_start_date DATE,
+FOREIGN_KEY(mgr_id) REFERENCES employee(emp_id) ON DELETE SET NULL);
+
+Delete from employee
+where emp_id = 102;
+
+1 rows affected.
+
+select * from branch;
+
+now branch table scraton mgr_id is set to null.
+
+select * from employee;
+
+super_id is set to null.
+  
+---------------------------------------
+
+create table branch_supplier(
+branch_id INT,
+supplier_name varchar(40),
+supply_type  varchar(40),
+primary key(branch_id,supplier_name),
+foreign key(branch_id) references branch(branch_id) on delete cascade;
+
+
+delete from branch
+where branch_id = 2;
+
+select * from branch_supplier;
+
+branch_id = 2 not left anymore.
+
+-----------------------------------------***********************************---------------------------------
+
+TRIGGERS-
+
+create table trigger_test(message varchar(100));
+
+open mysql command line client
+if it asks to enter usernae and password then pass this command in popsql.
+
+mysql -u root -p 
+
+use giraffe in command line 
+
+delimiter $$                    // execute this line seperately
+create my_trigger before insert     // from here till end $$
+on employee
+for each row begin
+insert into trigger_test values('added new employee');
+end$$;
+delimiter;          //execute this 
+
+insert into employee
+values(109,'oscar','martinez','1968-02-19','M',69000,100,3);
+
+select * from trigger_test;
+
+message added new employee...............................!!!!!!!!!!!!!!!!!!!!
+
+
+delimiter $$                    // execute this line seperately
+create my_trigger2 before insert     // from here till end $$
+on employee
+for each row begin
+insert into trigger_test values(NEW.first_name);
+end$$;
+delimiter;          //execute this 
+
+insert into employee
+values(109,'oscar','martinez','1968-02-19','M',69000,100,3);
+
+select * from trigger_test;
+
+added new employee
+kevin
+
+delimiter $$
+create 
+trigger my_trigger2 before insert
+on employee
+for each row begin
+if new.sex = 'M' then
+insert into trigger_test values('added male employee');
+elif new.sex = 'F' then
+insert into trigger_test values('added male employee');
+else
+insert into trigger_test values('added other employee');
+end if;
+end$$
+delimiter;
 
