@@ -807,13 +807,42 @@ Designing ER Diagram:
 
 Company Data Requirements:::
 
-1.Comapany is organized into branches. Each branch has unque number, name and particular employee who manages it.
+1.Comapany is organized into branches. Each branch has unique number, name and particular employee who manages it.
 2.Company makes it's money by selling to clients. Each client has a name and unique number to identify it.
 3.Foundation of company is it's employees.Each employee has a name,birthday,sex,salary and unique number.
 4.Employee can work for one branch at a time,and each branch will be managed by one of employyes that work here. We'll also want to keep track of when current manager started as manager.
-5.Employee can act as supervisor for other employees at branch, employee may also act as supervisor for employees at other branches. Employee can have at most one supervisor.
-6.A branch may handle number of clients,with each clients, with each client having name and uniwue number to identify it. A single client may only be handled by one branch at a time.
-7.Employees can work with clients controlled by their branch to sell them.
+6.Employee can act as supervisor for other employees at branch, employee may also act as supervisor for employees at other branches. Employee can have at most one supervisor.
+7.A branch may handle number of clients,with each clients, with each client having name and unique number to identify it. A single client may only be handled by one branch at a time.
+
+Day -12
+
+8.Employees can work with clients controlled by their branch to sell them stuff,If necessary multiple employees can work woth same client.
+9.Many branches will need to work with suppliers to buy inventory.For each supplier we'll keep track of their name and type of product they're selling branch. A single supplier may supply products to multiple branches. 
+
+Converting ER Diagram into Schema
+---------------------------------
+
+Step 1: Mapping of Regular Entity Types
+
+For each regular entity type create a relation(table) that includes all simple attributes of entity.
+
+Step 2: MApping of weak Entity types
+
+For each weak entity type create a relation(table) that includes all simple attributes of weak entity.
+
+step 3:Mapping of Bnary 1:1 relationship types:
+
+Include one side of relationship as a foreign key in other favor total particiipation.
+
+step 4: Mapping of Binary 1:N Reltionship Types
+
+Include 1 side's primary keya as a foreign key on N side relation(table).
+
+step 5: MApping of Binary M:N relationship types
+
+Create a new relation who's primary key is combination of both entities primary key's. Also include any relstionship attributes.
+
+-------------------------------------- THE END ----------------------------------------------------------------------------------------------------------------------------------
 
 
 
